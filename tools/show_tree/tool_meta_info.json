@@ -1,0 +1,13 @@
+{
+    "name": "show_tree",
+    "tool_path": "./show_tree.py",
+    "description": "展示指定目录的树状结构",
+    "keywords": [
+        "文件", "file", "info", "message",
+        "目录", "文件夹", "树状结构", "文件列表", "结构展示",
+        "tree", "directory", "folder", "list", "structure",
+        "层级", "子目录", "路径", "浏览", "组织", "内容", "显示",
+        "hierarchy", "subdirectories", "path", "browse", "organize", "contents", "display",
+        "ls", "dir", "tree命令", "文件夹树"
+    ]
+}

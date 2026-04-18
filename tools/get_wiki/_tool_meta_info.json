@@ -1,0 +1,5 @@
+{   "name": "get_wiki",
+    "tool_path": "./get_wiki.py",
+    "description": "获取用户输入的词条对应的维基百科页面内容",
+    "keywords": ["wiki", "wikipedia", "search", "get", "查询", "搜索", "维基"]
+}

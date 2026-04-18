@@ -1,0 +1,5 @@
+{   "name": "wiki_search",
+    "tool_path": "./wiki_search.py",
+    "description": "根据用户输入的关键词在维基百科上进行搜索，并返回相关的搜索结果",
+    "keywords": ["wiki", "wikipedia", "search", "查询", "搜索", "维基"]
+}

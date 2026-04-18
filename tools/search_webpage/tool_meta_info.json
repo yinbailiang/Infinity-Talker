@@ -1,0 +1,9 @@
+{
+    "name":"search_webpage",
+    "tool_path": "./search_webpage.py",
+    "description": "搜索并获取指定网页的内容",
+    "keywords": [
+        "网页", "内容", "抓取", "爬取", "获取","搜索", "查找",
+        "webpage", "content", "scrape", "fetch", "search", "find"
+    ]
+}

@@ -1,0 +1,44 @@
+[project]
+name = "infinity_talker"
+version = "1.0.0"
+
+dependencies = [
+    # http
+    "aiohttp",
+    "aiostream",
+
+    # data
+    "pydantic",
+    "aiosqlite",
+
+    # config
+    "PyYAML",
+    "pydantic-settings",
+
+    # html
+    "mistune",
+    "lxml",
+    "readability-lxml",
+    
+    # sound
+    "soundfile",
+    "sounddevice",
+    "webrtcvad-wheels",
+
+    # ui
+    "textual",
+]
+
+[project.optional-dependencies]
+dev = [
+    "textual-dev",
+    "infinity_talker[test]"
+]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-asyncio",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

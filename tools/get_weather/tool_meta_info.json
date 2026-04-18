@@ -1,0 +1,11 @@
+{
+    "name":"get_weather",
+    "tool_path": "./get_weather.py",
+    "description": "获取指定城市的天气信息",
+    "keywords": [
+        "天气", "气象", "温度", "湿度", "风速",
+        "天气预报", "实时天气", "未来天气", "空气质量",
+        "weather", "forecast", "temperature", "humidity", "wind speed",
+        "real-time weather", "future weather", "air quality"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "name": "ip_location",
+    "tool_path": "./ip_location.py",
+    "description": "根据IP地址获取地理位置信息",
+    "keywords": [
+        "IP", "位置", "地理", "地址", "定位",
+        "IP location", "geolocation", "address", "position",
+        "归属地", "查询", "解析", "获取", "经纬度", "城市", "国家", "省份", "运营商",
+        "whois", "网络位置", "IP归属", "IP查询", "IP地址定位",
+        "geoip", "ip2location", "location lookup", "ip geo", "region", "isp"
+    ]
+}
