@@ -2,8 +2,9 @@ import asyncio
 import inspect
 from typing import Any, Callable, Dict, List, Optional, Type, TypeVar, get_type_hints
 from pydantic import BaseModel, Field, create_model
-from core.event_bus.event_bus import Event, EventDeclaration, EventHandler, EventBus
-from core.event_bus.templates.request import RequestProtocol, ResponseProtocol
+
+from ..event_bus import Event, EventDeclaration, EventHandler, EventBus
+from .request import RequestProtocol, ResponseProtocol
 
 
 class ServiceWrapperResult:
@@ -75,7 +76,7 @@ def wrap_service(
         if return_type is type(None) or return_type is None:
             resp_fields: Dict[str, Any] = {}
         else:
-            resp_fields = {'result': (return_type, Field(default=None))}
+            resp_fields = {'result': (Optional[return_type], Field(default=None))}
 
         resp_model_name = f"{service_name.capitalize()}{method_name.capitalize()}Response"
         resp_model = create_model(
@@ -161,7 +162,7 @@ def wrap_service(
                 "error_msg": error_msg,
             }
             if 'result' in resp_model.model_fields:
-                resp_data['result'] = result
+                resp_data['result'] = result if success else None
 
             response = resp_model(**resp_data)
             await bus_proxy.publish(resp_event_name, response)
