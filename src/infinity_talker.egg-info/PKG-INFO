@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: infinity_talker
+Version: 1.0.0
+License-File: LICENSE.md
+Requires-Dist: aiohttp
+Requires-Dist: aiostream
+Requires-Dist: pydantic
+Requires-Dist: aiosqlite
+Requires-Dist: PyYAML
+Requires-Dist: pydantic-settings
+Requires-Dist: mistune
+Requires-Dist: lxml
+Requires-Dist: readability-lxml
+Requires-Dist: soundfile
+Requires-Dist: sounddevice
+Requires-Dist: webrtcvad-wheels
+Requires-Dist: textual
+Provides-Extra: dev
+Requires-Dist: textual-dev; extra == "dev"
+Requires-Dist: infinity_talker[test]; extra == "dev"
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: pytest-cov; extra == "test"
+Requires-Dist: pytest-asyncio; extra == "test"
+Dynamic: license-file

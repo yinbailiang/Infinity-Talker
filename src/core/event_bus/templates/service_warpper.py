@@ -75,7 +75,9 @@ def wrap_service(
         if return_type is type(None) or return_type is None:
             resp_fields: Dict[str, Any] = {}
         else:
-            resp_fields = {'result': (return_type, Field(default=None))}
+            # 使用 Optional 类型，允许 result 为 None（在错误情况下）
+            from typing import Optional
+            resp_fields = {'result': (Optional[return_type], Field(default=None))}
 
         resp_model_name = f"{service_name.capitalize()}{method_name.capitalize()}Response"
         resp_model = create_model(
@@ -161,7 +163,8 @@ def wrap_service(
                 "error_msg": error_msg,
             }
             if 'result' in resp_model.model_fields:
-                resp_data['result'] = result
+                # 只有在成功时才设置 result，失败时设为 None 并允许验证通过
+                resp_data['result'] = result if success else None
 
             response = resp_model(**resp_data)
             await bus_proxy.publish(resp_event_name, response)
