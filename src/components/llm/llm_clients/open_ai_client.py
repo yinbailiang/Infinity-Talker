@@ -7,7 +7,8 @@ from typing import Any, AsyncGenerator, Literal, Optional, Dict, List
 import aiohttp
 from pydantic import BaseModel, Field
 
-from . import LLMClient, Messages, StreamChunk, UsageStats
+from . import LLMClient, StreamChunk, UsageStats
+from ..messages_model import Messages
 from ..exceptions import LLMNetworkError, LLMStreamError, build_http_error
 
 logger = logging.getLogger(__name__)

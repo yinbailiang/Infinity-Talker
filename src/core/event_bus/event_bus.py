@@ -155,6 +155,10 @@ class EventBus:
         @property
         def events_registry(self) -> EventRegistry:
             return self._bus._events
+        
+        @property
+        def bus(self) -> 'EventBus':
+            return self._bus
 
 
     def __init__(self, event_registry: EventRegistry, handler_registry: EventHandlerRegistry, max_queue_size: int = 1024, max_handler_semaphore: int = 256) -> None:

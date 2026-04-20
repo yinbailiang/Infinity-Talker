@@ -129,6 +129,7 @@ async def expect_pipe(
     bus_proxy: EventBus.Proxy,
     req_event: str,
     resp_event: str,
+    session_id: Optional[str] = None,
     timeout: float = 5.0,
 ) -> AsyncIterator[Pipe]
 ```
@@ -138,6 +139,7 @@ async def expect_pipe(
 | `bus_proxy` | `EventBus.Proxy` | 事件总线代理，用于监听请求和发送响应。 |
 | `req_event` | `str` | 期望监听的握手请求事件名。 |
 | `resp_event` | `str` | 用于回复握手结果的事件名。 |
+| `session_id` | `Optionale[str]` | 用于筛选的会话id，只响应指定会话id的请求 |
 | `timeout` | `float` | 等待握手请求的超时时间（秒）。超时抛出 `PipeHandshakeError`。 |
 
 **Yields**  
@@ -145,7 +147,7 @@ async def expect_pipe(
 
 **握手流程**  
 
-1. 使用 `expect` 监听 `req_event`，等待 `PipeOpenRequest` 事件。
+1. 使用 `expect` 监听 `req_event`，等待 `PipeOpenRequest` 事件。并校验会话id
 2. 收到请求后，根据 `pipe_id` 从 `PipeRegistry` 中 `pop` 出对应的管道（取出的同时移除注册，确保所有权唯一）。
 3. 若管道不存在，发布一个 `success=False` 的 `PipeLinkedResponse` 并抛出异常。
 4. 若存在，发布 `success=True` 的响应，然后 `yield` 管道。

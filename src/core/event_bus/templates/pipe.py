@@ -195,6 +195,7 @@ async def expect_pipe(
     bus_proxy: EventBus.Proxy,
     req_event: str,
     resp_event: str,
+    session_id: Optional[str] = None,
     timeout: float = 5.0,
 ) -> AsyncIterator[Pipe]:
     """等待一个管道连接请求，返回已建立的 Pipe 实例。"""
@@ -203,6 +204,8 @@ async def expect_pipe(
 
     def request_filter(event: Event) -> bool:
         if not isinstance(event.data, PipeOpenRequest):
+            return False
+        if session_id is not None and event.data.session_id != session_id:
             return False
         return True
 
